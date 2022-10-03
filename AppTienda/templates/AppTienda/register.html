@@ -1,0 +1,27 @@
+{% extends "AppTienda/Principal.html" %} <!-- Declaro que Principal es mi herencia-->
+
+{% load static %} <!-- Obligadamente va-->
+
+<!-- Titulo centrado-->
+{% block titulo %}
+<div class="container">                    
+    <div class="masthead-heading text-uppercase">Registro</div>
+</div>
+{% endblock %}
+
+
+{% block register %}
+ <div style="text-align: center;">
+<form action="{% url 'register' %}" method="POST" > {% csrf_token %}
+
+  <table>
+    {{ formulario.as_table }}   
+   </table> 
+
+<button type="submit"> Registrarse</button>
+</form>
+
+<h2>{{ mensaje}}</h2>
+</div>
+{% endblock %}
+
